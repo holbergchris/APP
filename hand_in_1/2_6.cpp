@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 		x_next = x_prev - step;
 		std::cout 	<< "Iteration: " << i << ", x: " 
 					<< x_next << "\n";
-		x_prev = x_next
+		x_prev = x_next;
 	}
 	
 	return 0;

@@ -1,23 +1,19 @@
 #include "2_6.h"
-#include <iostream>
 #include <cmath>
 
-int main(int argc, char* argv[])
+double newton_Raphson(double initialGuess, double epsilon)
 {
-	double x_prev, x_next=0;
-	double epsilon=0.0001, step=1;
-	int i = 1;
-	while (fabs(step)>epsilon)
+	double x_next, x_prev = initialGuess, step = 0;
+	int i = 0;
+	while ((fabs(step) > epsilon) || (i == 0))
 	{
 		step = 	(exp(x_prev)+pow(x_prev, 3.0)-5.0)/
 				(exp(x_prev)+3.0*pow(x_prev,2.0));
 		x_next = x_prev - step;
-		std::cout 	<< "Iteration: " << i << ", x: " 
-					<< x_next << "\n";
 		x_prev = x_next;
 		i++;
 	}
 	
-	return 0;
+	return x_next;
 }
 

@@ -1,9 +1,6 @@
 #include "5_10.h"
-#include "5_6.h"
 #include <cmath>
 #include <cassert>
-
-
 
 int which_row_max(double** A, int k, int n)
 {
@@ -145,4 +142,16 @@ void guassian_elimination(double **A, double *b, double *u, int n)
 		}
 		u[n-i-1] /= A_new[n-i-1][n-i-1];
 	}
+	
+	for (int i=0; i<n; i++)
+	{
+		delete[] A_old[i];
+		delete[] A_new[i];
+		delete[] P[i];
+	}
+	delete[] A_old;
+	delete[] A_new;
+	delete[] P;
+	delete[] b_old;
+	delete[] b_new;
 }

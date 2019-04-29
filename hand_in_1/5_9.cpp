@@ -1,14 +1,6 @@
 #include "5_9.h"
-#include "5_6.h"
 #include <cassert>
 #include <cmath>
-
-double det3by3(double **A)
-{
-	return  A[0][0]*(A[1][1]*A[2][2]-A[1][2]*A[2][1]) -
-			A[0][1]*(A[1][0]*A[2][2]-A[1][2]*A[2][0]) +
-			A[0][2]*(A[1][0]*A[2][1]-A[1][1]*A[2][0]);
-}
 
 int which_row_max(double** A, int k)
 {
@@ -96,7 +88,6 @@ void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRow
 
 void solve3by3(double **A, double *b, double *u)
 {
-	assert(det3by3(A) != 0);
 	double** A_old = new double* [3];
 	double** A_new = new double* [3];
 	double** P = new double* [3];
@@ -142,4 +133,16 @@ void solve3by3(double **A, double *b, double *u)
 	u[2] = b_new[2]/A_new[2][2];
 	u[1] = (b_new[1] - u[2]*A_new[1][2]) / A_new[1][1];
 	u[0] = (b_new[0] - u[2]*A_new[0][2] - u[1]*A_new[0][1]) / A_new[0][0];
+	
+	for (int i=0; i<3; i++)
+	{
+		delete[] A_old[i];
+		delete[] A_new[i];
+		delete[] P[i];
+	}
+	delete[] A_old;
+	delete[] A_new;
+	delete[] P;
+	delete[] b_old;
+	delete[] b_new;
 }

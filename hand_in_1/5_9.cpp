@@ -63,6 +63,37 @@ void duplicate(double* a, double* b)
 	}
 }
 
+void Multiply(double **res, double **A, double **B, int ARows, int ACols, int BRows, int BCols)
+{
+	assert(ACols == BRows);
+	for (int i=0; i<ARows; i++)
+	{
+		for (int j=0; j<BCols; j++)
+		{
+			double tmp = 0.0;
+			for (int k=0; k<ACols; k++)
+			{
+				tmp += A[i][k]*B[k][j];
+			}
+			res[i][j] = tmp;
+		}
+	}
+}
+
+void Multiply(double *res, double **A, double *B, int ARows, int ACols, int BRows)
+{
+	assert(ACols == BRows);
+	for (int i=0; i<ARows; i++)
+	{
+		double tmp = 0.0;
+		for (int j=0; j<ACols; j++)
+		{
+			tmp += B[j]*A[i][j];
+		}
+		res[i] = tmp;
+	}
+}
+
 void solve3by3(double **A, double *b, double *u)
 {
 	assert(det3by3(A) != 0);

@@ -14,6 +14,7 @@ double calc_std(double a[], int length)
 			std += pow((a[i]-x_bar), 2);
 		}
 		std /= ((double)(length-1));
+		std = pow(std, 0.5);
 	}
 	return std;
 }

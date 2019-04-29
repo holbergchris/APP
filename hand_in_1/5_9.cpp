@@ -2,7 +2,6 @@
 #include "5_6.h"
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 double det3by3(double **A)
 {
@@ -89,7 +88,6 @@ void solve3by3(double **A, double *b, double *u)
 	
 	for (int i=0; i<2; i++)
 	{
-		std::cout << "Iteration: " << i << "\n";
 		max = which_row_max(A_old, i);
 		make_P(P, i, max);
 		Multiply(A_new, P, A_old, 3, 3, 3, 3);

@@ -97,3 +97,18 @@ std::ostream& operator<<(std::ostream& output,const ComplexNumber& z)
 		output << "- " << -z.mImaginaryPart << "i)";
 	}
 }
+
+
+// Exercise prototypes
+
+// Extracting real part from private member 
+double ComplexNumber::GetRealPart() const
+{
+	return mRealPart;
+}
+
+// Extracting imaginary part from private member
+double ComplexNumber::GetImaginaryPart() const
+{
+	return mImaginaryPart;
+}

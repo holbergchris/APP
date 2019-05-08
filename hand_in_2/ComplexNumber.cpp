@@ -101,14 +101,26 @@ std::ostream& operator<<(std::ostream& output,const ComplexNumber& z)
 
 // Exercise prototypes
 
-// Extracting real part from private member 
+// Extracting real part from private member with method
 double ComplexNumber::GetRealPart() const
 {
 	return mRealPart;
 }
 
-// Extracting imaginary part from private member
+// Extracting imaginary part from private member with method
 double ComplexNumber::GetImaginaryPart() const
 {
 	return mImaginaryPart;
+}
+
+// Extracting real part from private member with friend function
+double RealPart(const ComplexNumber& z)
+{
+	return z.mRealPart;
+}
+
+// Extracting imaginary part from private member with friend function
+double ImaginaryPart(const ComplexNumber& z)
+{
+	return z.mImaginaryPart;
 }
